@@ -14,9 +14,6 @@ is.installed <- function(mypkg) is.element(mypkg, installed.packages()[,1])
 
 if(is.installed("lme4")){
 
-    sigmaSq <- sigma(obj)
-
-
 tau00 <- function(obj){
     tau<- (VarCorr(obj))[[1]][1,1]
     return(round(tau,3))
@@ -38,7 +35,7 @@ rho01 <- function(obj){
 }
 
 ICC <- function(obj){
-return(tau00(obj)/(tau00(obj)+sigmaSq(obj)))
+return(tau00(obj)/(tau00(obj)+sigma(obj)))
 }
 }else {cat("Package lme4 is *not* installed on your compuetr.\nPlease install the package first.\n")}
 
