@@ -42,8 +42,3 @@ return(tau00(obj)/(tau00(obj)+sigmaSq(obj)))
 }
 }else {cat("Package lme4 is *not* installed on your compuetr.\nPlease install the package first.\n")}
 
-library(lme4)
-(fm1 <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy))
-summary(fm1)# (with its own print method)
-sigma(fm1)
-ICC(fm1)
